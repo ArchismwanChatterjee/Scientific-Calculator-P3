@@ -490,7 +490,7 @@ int matrix_transpose()
 {
         int m, n, i, j;
     
-    printf("Enter the number of rows and columns of the matrix: ");
+    printf("Enter the number of rows and columns of the matrix: \n");
     scanf("%d %d", &m, &n);
     int matrix[m][n], transpose[n][m];
     
