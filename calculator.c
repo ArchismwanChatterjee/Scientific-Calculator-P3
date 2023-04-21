@@ -486,6 +486,55 @@ int matrix_multiplication()
     return 0;
 }
 
+int matrix_transpose()
+{
+        int m, n, i, j;
+    
+    printf("Enter the number of rows and columns of the matrix: ");
+    scanf("%d %d", &m, &n);
+    int matrix[m][n], transpose[n][m];
+    
+    printf("Enter the matrix elements:\n");
+    
+    for (i = 0; i < m; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    printf("The Original matrix is:\n");
+    for (i = 0; i < m; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for (i = 0; i < m; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+    
+    printf("The transpose of the matrix is:\n");
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < m; j++)
+        {
+            printf("%d ", transpose[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
 int complex_basic(void)
 {
 
@@ -771,7 +820,7 @@ start:
         break;
 
     case 3:
-        printf("\n 1.Addition \t\t 2.Subtraction \t\t  3.Multiplication \n");
+        printf("\n 1.Addition \t\t 2.Subtraction \t\t 3.Multiplication \t\t 4.Transpose \n");
         scanf("%d", &ch);
         Sleep(1000);
         system("cls");
@@ -786,6 +835,9 @@ start:
         case 3:
             matrix_multiplication();
             break;
+        case 4:
+            matrix_transpose();
+            break;    
         }
         break;
 
