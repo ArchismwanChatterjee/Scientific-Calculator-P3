@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+#include <windows.h>
 float a, b;
 int ch;
 int simple()
