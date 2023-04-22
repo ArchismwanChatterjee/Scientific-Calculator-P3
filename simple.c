@@ -1,6 +1,6 @@
 #include <stdio.h>
 float a, b;
-char ch;
+int ch;
 int simple()
 {
     printf("SELECT YOUR OPERATION \n 1.+\n 2.-\n 3.* \n 4./ \n ");
