@@ -319,7 +319,7 @@ int mathematical()
         break;
 
     case 15:
-        printf("Result is %d", rand());
+        printf("Result is %d \n", rand());
         break;
     case 16:
         printf("Enter a number \n");
@@ -488,14 +488,14 @@ int matrix_multiplication()
 
 int matrix_transpose()
 {
-        int m, n, i, j;
-    
+    int m, n, i, j;
+
     printf("Enter the number of rows and columns of the matrix: \n");
     scanf("%d %d", &m, &n);
     int matrix[m][n], transpose[n][m];
-    
+
     printf("Enter the matrix elements:\n");
-    
+
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
@@ -503,7 +503,7 @@ int matrix_transpose()
             scanf("%d", &matrix[i][j]);
         }
     }
-    
+
     printf("The Original matrix is:\n");
     for (i = 0; i < m; i++)
     {
@@ -513,7 +513,7 @@ int matrix_transpose()
         }
         printf("\n");
     }
-    
+
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
@@ -521,7 +521,7 @@ int matrix_transpose()
             transpose[j][i] = matrix[i][j];
         }
     }
-    
+
     printf("The transpose of the matrix is:\n");
     for (i = 0; i < n; i++)
     {
@@ -532,6 +532,106 @@ int matrix_transpose()
         printf("\n");
     }
 
+    return 0;
+}
+
+int matrix_random()
+{
+    srand(time(0));
+    int m, n;
+    printf("Enter the number of rows and columns of the matrix: \n");
+    scanf("%d %d", &m, &n);
+    printf("\n");
+    int matrix[m][n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+            matrix[i][j] = rand() % 100;
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+            printf("%d\t", matrix[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+int matrix_boundarysum()
+{
+    int m, n, s = 0;
+    printf("Enter the order of first matrix\n");
+    scanf("%d%d", &m, &n);
+    int a[m][n];
+    printf("Enter the matrix elements:\n");
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("The matrix is:\n");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        s += a[0][i];
+        s += a[m - 1][0];
+    }
+
+    for (int j = 1; j < n - 1; j++)
+    {
+        s += a[j][0];
+        s += a[j][n - 1];
+    }
+
+    printf("\n The sum is %d", s);
+    return 0;
+}
+
+int matrix_non_boundarysum()
+{
+    int m, n, s = 0;
+    printf("Enter the order of first matrix\n");
+    scanf("%d%d", &m, &n);
+    int a[m][n];
+    printf("Enter the matrix elements:\n");
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("The matrix is:\n");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 1; i < m - 1; i++)
+    {
+        for (int j = 1; j < n - 1; j++)
+            s += a[i][j];
+    }
+    printf("\nThe sum is %d ", s);
     return 0;
 }
 
@@ -820,7 +920,7 @@ start:
         break;
 
     case 3:
-        printf("\n 1.Addition \t\t 2.Subtraction \t\t 3.Multiplication \t\t 4.Transpose \n");
+        printf("\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Transpose\n5.Random Matrix Generation\n6.Boundary Sum\n7.Non-Boundary Sum \n");
         scanf("%d", &ch);
         Sleep(1000);
         system("cls");
@@ -837,7 +937,16 @@ start:
             break;
         case 4:
             matrix_transpose();
-            break;    
+            break;
+        case 5:
+            matrix_random();
+            break;
+        case 6:
+            matrix_boundarysum();
+            break;
+        case 7:
+            matrix_non_boundarysum();
+            break;
         }
         break;
 
